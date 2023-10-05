@@ -1,0 +1,55 @@
+[System]
+Name='FIS1-IF5B'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=15
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='SUHU'
+Range=[0 50]
+NumMFs=5
+MF1='DINGIN':'trimf',[0 0 15]
+MF2='SEJUK':'trimf',[11 18 25]
+MF3='NORMAL':'trimf',[21 25 30]
+MF4='HANGAT':'trimf',[28 34 40]
+MF5='PANAS':'trimf',[36 50 50]
+
+[Input2]
+Name='CAHAYA'
+Range=[0 100]
+NumMFs=3
+MF1='GELAP':'trimf',[0 0 35]
+MF2='NORMAL':'trimf',[31 58 85]
+MF3='TERANG':'trimf',[81 100 100]
+
+[Output1]
+Name='KEC_MESIN'
+Range=[0 45]
+NumMFs=3
+MF1='LAMBAT':'trimf',[0 0 15]
+MF2='SEDANG':'trimf',[11 16 21]
+MF3='CEPAT':'trimf',[19 45 45]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 1 (1) : 1
+2 1, 1 (1) : 1
+2 2, 1 (1) : 1
+2 3, 2 (1) : 1
+3 1, 2 (1) : 1
+3 2, 2 (1) : 1
+3 3, 2 (1) : 1
+4 1, 2 (1) : 1
+4 2, 3 (1) : 1
+4 3, 3 (1) : 1
+5 1, 3 (1) : 1
+5 2, 3 (1) : 1
+5 3, 3 (1) : 1
