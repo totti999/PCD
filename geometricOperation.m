@@ -14,8 +14,7 @@ hasil_scaling = imtransform(I, I_scale);
 %Translation
 matriks_I = [1 0 0; 0 1 0;25 15 1];
 I_translation = maketform('affine', matriks_I);
-hasil_translasi = imtransform(I, I_translation, 'Xdata', [1 size(I,2)+ matriks_I(3,1)], ...
-    'Ydata', [1 size(I,1)+matriks_I(3,2)], 'FileValues' 128);
+hasil_translasi = imtransform(I, I_translation, 'Xdata', [1 (size(I,2)+ matriks_I(3,1))],'Ydata', [1 (size(I,1)+matriks_I(3,2))], 'FillValues',128);
 
 %Shear
 
